@@ -1,0 +1,20 @@
+version: '3'
+
+
+services:
+
+  #Mysql Database Service
+  book-mysql-service:
+    container_name: books-mysql-server
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: changeme
+    ports:
+      - "3306:3306"
+      - "33306:33306"
+    volumes:
+      - "books-mysql-data:/var/lib/mysql"
+
+volumes:
+  books-mysql-data:
+    external: true
